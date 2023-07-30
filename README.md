@@ -64,6 +64,29 @@ Then
 cmake --build build --target webgl
 ```
 
+
+Run
+---
+
+To actually run the project the server/ directory is used.
+
+Node.js needs to be installed, which is most easily done via [Node Version
+Manager (NVM)](https://github.com/nvm-sh/nvm) which gives you the option to try
+alternative versions.
+
+With node installed, you can:
+
+```
+cd server/
+npm install
+node server.js ../build/Builds/WebGL
+```
+
+Then browse to http://localhost:8080/. But it is not usable yet - you will see
+the error showing that the server needs to serve using https with brotli
+compression.
+
+
 Obtaining a license
 -------------------
 

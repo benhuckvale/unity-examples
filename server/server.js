@@ -2,9 +2,16 @@ const http = require('http');
 const finalhandler = require('finalhandler');
 const serveStatic = require('serve-static');
 
-const serve = serveStatic('.', {
-  index: ['index.html'],
-});
+// This script is run as "node server.js path/to/distribution"
+// Take path to files to serve from command line arg 2
+const distribution_path = process.argv[2];
+
+const serve = serveStatic(
+  distribution_path,
+  {
+    index: ['index.html'],
+  }
+);
 
 const server = http.createServer((req, res) => {
   const done = finalhandler(req, res);
