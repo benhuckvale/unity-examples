@@ -1,2 +1,4 @@
 /build
 /server/node_modules
+/server/private.key
+/server/certificate.crt

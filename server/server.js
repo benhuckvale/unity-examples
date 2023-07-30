@@ -1,4 +1,5 @@
-const http = require('http');
+const fs = require('fs');
+const https = require('https');
 const finalhandler = require('finalhandler');
 const serveStatic = require('serve-static');
 
@@ -13,12 +14,17 @@ const serve = serveStatic(
   }
 );
 
-const server = http.createServer((req, res) => {
+const options = {
+    key: fs.readFileSync('private.key'),
+    cert: fs.readFileSync('certificate.crt')
+};
+
+const server = https.createServer(options, (req, res) => {
   const done = finalhandler(req, res);
   serve(req, res, done);
 });
 
 const port = process.env.PORT || 8080;
 server.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running at https://localhost:${port}`);
 });

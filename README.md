@@ -74,6 +74,16 @@ Node.js needs to be installed, which is most easily done via [Node Version
 Manager (NVM)](https://github.com/nvm-sh/nvm) which gives you the option to try
 alternative versions.
 
+You also need a self-signed cert in it, which you can create with OpenSSL like this:
+```
+cd server/
+openssl genpkey -algorithm RSA -out private.key
+openssl req -new -key private.key -x509 -days 365 -out certificate.crt -subj "/C=GB"
+cd ..
+```
+Or with a different "/C=<country>" or otherwise as you see fit. The country is the minimum
+you need in the subject field.
+
 With node installed, you can:
 
 ```
@@ -82,9 +92,10 @@ npm install
 node server.js ../build/Builds/WebGL
 ```
 
-Then browse to http://localhost:8080/. But it is not usable yet - you will see
-the error showing that the server needs to serve using https with brotli
-compression.
+Browse to https://localhost:8080/. The first time you will need to accept the
+connection warning and "Proceed to localhost (unsafe)" unless you do not trust
+your own certificate. It is not usable yet - you will see the error showing
+that the server needs to serve files with certain headers present.
 
 
 Obtaining a license
