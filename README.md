@@ -94,8 +94,7 @@ node server.js ../build/Builds/WebGL
 
 Browse to https://localhost:8080/. The first time you will need to accept the
 connection warning and "Proceed to localhost (unsafe)" unless you do not trust
-your own certificate. It is not usable yet - you will see the error showing
-that the server needs to serve files with certain headers present.
+your own certificate. Then enjoy!
 
 
 Obtaining a license
