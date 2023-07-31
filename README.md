@@ -97,6 +97,16 @@ connection warning and "Proceed to localhost (unsafe)" unless you do not trust
 your own certificate. Then enjoy!
 
 
+Todo list/Roadmap
+-----------------
+
+- Create self-signed cert and set up server.js as part of cmake build
+- Fetch node.js automatically as part of cmake configure
+- Rearrange project to allow for multiple applications to be built
+- Make a more interesting application
+- Support Development on Windows
+
+
 Obtaining a license
 -------------------
 
